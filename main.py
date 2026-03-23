@@ -28,7 +28,7 @@ LOG_DIR.mkdir(exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s │ %(name)-20s │ %(levelname)-7s │ %(message)s",
+    format="%(asctime)s | %(name)-20s | %(levelname)-7s | %(message)s",
     handlers=[
         logging.FileHandler(LOG_DIR / "agent.log"),
         logging.StreamHandler(),

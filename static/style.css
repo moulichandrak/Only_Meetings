@@ -1,26 +1,27 @@
-/* ── AI Agent Dashboard — Premium Dark Theme ── */
+/* ── ONLY MEETING — Professional SaaS Design System ── */
 
 :root {
-    --bg-primary: #0a0a1a;
-    --bg-secondary: #111128;
-    --bg-card: rgba(20, 20, 50, 0.6);
-    --bg-card-hover: rgba(30, 30, 70, 0.7);
-    --border-glass: rgba(100, 100, 255, 0.1);
-    --border-glow: rgba(102, 126, 234, 0.3);
-    --text-primary: #e8e8ff;
-    --text-secondary: #8888aa;
-    --text-muted: #555577;
-    --accent-primary: #667eea;
-    --accent-secondary: #764ba2;
-    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --success: #34d399;
-    --warning: #fbbf24;
-    --error: #f87171;
-    --info: #60a5fa;
-    --radius: 14px;
+    --bg-primary: #0f172a; /* Deep Slate */
+    --bg-secondary: #020617; /* Near Black */
+    --bg-card: rgba(30, 41, 59, 0.7); /* Slate 800-ish */
+    --bg-card-hover: rgba(30, 41, 59, 0.9);
+    --border-glass: rgba(148, 163, 184, 0.15); /* Slate 400 */
+    --border-glow: rgba(99, 102, 241, 0.3); /* Indigo 500 */
+    --text-primary: #f8fafc; /* Slate 50 */
+    --text-secondary: #94a3b8; /* Slate 400 */
+    --text-muted: #64748b; /* Slate 500 */
+    --accent-primary: #6366f1; /* Vibrant Indigo */
+    --accent-secondary: #4f46e5; /* Deep Indigo */
+    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #3b82f6;
+    --radius: 12px;
     --radius-sm: 8px;
-    --shadow-glow: 0 0 30px rgba(102, 126, 234, 0.15);
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.1);
+    --font: 'Outfit', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 }
 
 *, *::before, *::after {
@@ -133,12 +134,14 @@ body {
 }
 
 .logo h1 {
-    font-size: 22px;
-    font-weight: 700;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+.accent-text {
+    color: var(--accent-primary);
 }
 
 .badge {
@@ -300,9 +303,86 @@ body {
 /* ── Dashboard Grid ── */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 20px;
-    margin-bottom: 24px;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.dashboard-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.dashboard-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── Guidance Section ── */
+.guidance-section {
+    padding: 0 !important;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(30, 41, 59, 0.4) 100%);
+    border: 1px solid var(--border-glass) !important;
+}
+
+.guide-content {
+    padding: 24px;
+}
+
+.guide-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--accent-gradient);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.guide-step h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.guide-step p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.auth-btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #1f2937;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.auth-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: #f9fafb;
+}
+
+.auth-btn-primary svg {
+    flex-shrink: 0;
 }
 
 /* ── Log Panel ── */
@@ -360,9 +440,11 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 16px 20px;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: var(--font-mono);
     font-size: 13px;
     line-height: 1.8;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .log-panel::-webkit-scrollbar { width: 6px; }
@@ -485,6 +567,7 @@ body {
 
 .step-connector.active {
     background: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-primary);
 }
 
 /* ── Result Card ── */
@@ -564,11 +647,68 @@ body {
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+/* ── Animations ── */
+.glass-card {
+    animation: reveal 0.8s cubic-bezier(0, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.input-section .glass-card { animation-delay: 0.1s; }
+.dashboard-left .guidance-section { animation-delay: 0.2s; }
+.dashboard-left .log-section { animation-delay: 0.3s; }
+.dashboard-right .steps-section { animation-delay: 0.4s; }
+
+/* ── UI Utilities ── */
+.copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
+}
+
+.copy-btn.copied {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+/* ── Result Detail Enhancements ── */
+#resultLink {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
+}
 
+@media (max-width: 768px) {
     .input-group {
         flex-direction: column;
     }
@@ -579,8 +719,16 @@ body {
 
     .app-header {
         flex-direction: column;
-        gap: 12px;
+        gap: 16px;
+        text-align: center;
     }
 
-    .input-card { padding: 20px; }
+    .logo {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .input-card { padding: 24px; }
+    
+    .logo h1 { font-size: 28px; }
 }
